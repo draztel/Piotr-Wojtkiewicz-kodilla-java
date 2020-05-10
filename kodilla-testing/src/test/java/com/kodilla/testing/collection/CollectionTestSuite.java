@@ -34,8 +34,8 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList() {
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
-        exterminator.numbers.add(0, 2);
-        exterminator.numbers.add(1, 3);
+        exterminator.numbers.add(2);
+        exterminator.numbers.add(3);
         exterminator.exterminate(exterminator.numbers);
 
         int result = exterminator.numbers.size();
