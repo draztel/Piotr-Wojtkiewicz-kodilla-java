@@ -6,7 +6,7 @@ public class Triangle implements Shape {
         return "Triangle";
     }
 
-    public String getField() {
-        return "(a * h) / 2";
+    public int getField() {
+        return 100;
     }
 }

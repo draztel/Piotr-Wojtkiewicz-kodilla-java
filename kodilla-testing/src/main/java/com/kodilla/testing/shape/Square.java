@@ -6,7 +6,7 @@ public class Square implements Shape {
         return "Square";
     }
 
-    public String getField() {
-        return "a * a";
+    public int getField() {
+        return 25;
     }
 }

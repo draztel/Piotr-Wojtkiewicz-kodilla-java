@@ -6,7 +6,7 @@ public class Circle implements Shape {
         return "Circle";
     }
 
-    public String getField() {
-        return "3.14 * (r * r)";
+    public int getField() {
+        return 100;
     }
 }
