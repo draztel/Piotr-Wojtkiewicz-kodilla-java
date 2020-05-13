@@ -6,7 +6,7 @@ import java.util.Objects;
 public class ShapeCollector {
     String shapeNames = "";
     String aBreak = " ";
-    public Shape shape;
+    Shape shape;
 
     public ShapeCollector(Shape shape) {
         this.shape = shape;
