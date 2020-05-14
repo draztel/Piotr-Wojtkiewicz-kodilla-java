@@ -49,7 +49,7 @@ public class ForumTestSuite {
         ForumPost retrievedPost;
         retrievedPost = forumUser.getPost(0);
 
-        Assert.assertEquals(thePost, retrievedPost);
+        Assert.assertEquals(null, retrievedPost);
     }
     @Test
     public void testGetComment() {
