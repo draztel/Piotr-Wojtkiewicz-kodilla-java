@@ -6,13 +6,11 @@ import java.util.Objects;
 public class ShapeCollector {
     String shapeNames = "";
     String aBreak = " ";
-    Shape shape;
-
-    public ShapeCollector(Shape shape) {
-        this.shape = shape;
-    }
 
     public ArrayList<Shape> shapes = new ArrayList<Shape>();
+
+    public ShapeCollector(Shape shape) {
+    }
 
     public void addFigure(Shape shape) {
         shapes.add(shape);
@@ -23,7 +21,7 @@ public class ShapeCollector {
     }
 
     public String getFigure(int n) {
-        return shapes.get(n).getShapeName();
+        return shapes.get(n);
     }
 
     public String showFigures() {
@@ -38,12 +36,11 @@ public class ShapeCollector {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ShapeCollector that = (ShapeCollector) o;
-        return Objects.equals(shapes, that.shapes) &&
-                Objects.equals(shape, that.shape);
+        return Objects.equals(shapes, that.shapes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(shapes, shape);
+        return Objects.hash(shapes);
     }
 }
