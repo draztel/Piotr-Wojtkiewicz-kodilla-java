@@ -1,6 +1,6 @@
 package com.kodilla.stream.beautifier;
 
-public class PoemBeatufier {
+public class PoemBeautifier {
     public void executeDecorator(String text, PoemDecorator poemDecorator) {
         String result = poemDecorator.decorate(text);
         System.out.println(result);

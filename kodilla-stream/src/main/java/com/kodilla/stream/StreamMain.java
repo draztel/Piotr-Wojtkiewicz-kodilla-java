@@ -1,22 +1,18 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeatufier;
-import com.kodilla.stream.lambda.ExecuteSaySomething;
-import com.kodilla.stream.lambda.Executor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.lambda.SaySomething;
+import com.kodilla.stream.beautifier.PoemBeautifier;
 
 public class StreamMain {
     public static void main (String[]args) {
-        PoemBeatufier poemBeatufier = new PoemBeatufier();
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
 
         System.out.println("Welcome to module 7 - Stream");
 
-        poemBeatufier.executeDecorator("byl sobie krol", PoemBeatufier::addDot);
-        poemBeatufier.executeDecorator("byl sobie krol", PoemBeatufier::addABCAtTheBeginning);
-        poemBeatufier.executeDecorator("byl sobie krol", PoemBeatufier::addABCAtTheEnd);
-        poemBeatufier.executeDecorator("byl sobie krol", PoemBeatufier::addLine);
-        poemBeatufier.executeDecorator("byl sobie krol", (text) -> text.toUpperCase());
-        poemBeatufier.executeDecorator("BYL SOBIE KROL", (text) -> text.toLowerCase());
+        poemBeautifier.executeDecorator("byl sobie krol", PoemBeautifier::addDot);
+        poemBeautifier.executeDecorator("byl sobie krol", PoemBeautifier::addABCAtTheBeginning);
+        poemBeautifier.executeDecorator("byl sobie krol", PoemBeautifier::addABCAtTheEnd);
+        poemBeautifier.executeDecorator("byl sobie krol", PoemBeautifier::addLine);
+        poemBeautifier.executeDecorator("byl sobie krol", (text) -> text.toUpperCase());
+        poemBeautifier.executeDecorator("BYL SOBIE KROL", (text) -> text.toLowerCase());
     }
 }
