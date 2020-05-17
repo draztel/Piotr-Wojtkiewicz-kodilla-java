@@ -9,7 +9,6 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity() {
         World world = new World();
-        Continent continent = new Continent();
 
         Country country1 = new Country("Bangladesz", new BigDecimal("2000"));
         Country country2 = new Country("Bhutan", new BigDecimal("2000"));
@@ -27,31 +26,33 @@ public class WorldTestSuite {
         Country country24 = new Country("Queensland", new BigDecimal("2000"));
         Country country25 = new Country("Tonga",new BigDecimal("2000"));
 
-        Continent Asia = new Continent(country1, country2, country3, country4, country5, "Asia");
-        Continent Europe = new Continent(country11, country12, country13, country14, country15, "Europe");
-        Continent Australia = new Continent(country21, country22, country23, country24, country25, "Australia");
+        Continent Asia = new Continent("Azja");
+        Continent Europe = new Continent("Europa");
+        Continent Australia = new Continent("Australia");
 
-        continent.addCountry(country1);
-        continent.addCountry(country2);
-        continent.addCountry(country3);
-        continent.addCountry(country4);
-        continent.addCountry(country5);
-        continent.addCountry(country11);
-        continent.addCountry(country12);
-        continent.addCountry(country13);
-        continent.addCountry(country14);
-        continent.addCountry(country15);
-        continent.addCountry(country21);
-        continent.addCountry(country22);
-        continent.addCountry(country23);
-        continent.addCountry(country24);
-        continent.addCountry(country25);
+        Asia.countryList.add(country1);
+        Asia.countryList.add(country2);
+        Asia.countryList.add(country3);
+        Asia.countryList.add(country4);
+        Asia.countryList.add(country5);
+        Europe.countryList.add(country11);
+        Europe.countryList.add(country12);
+        Europe.countryList.add(country13);
+        Europe.countryList.add(country14);
+        Europe.countryList.add(country15);
+        Australia.countryList.add(country21);
+        Australia.countryList.add(country22);
+        Australia.countryList.add(country23);
+        Australia.countryList.add(country24);
+        Australia.countryList.add(country25);
 
-        world.addContinent(Asia);
-        world.addContinent(Europe);
-        world.addContinent(Australia);
+        world.continentList.add(Asia);
+        world.continentList.add(Europe);
+        world.continentList.add(Australia);
 
-        Assert.assertEquals(30000, world.getPeopleQuantity());
+        BigDecimal condition = new BigDecimal(30000);
+
+        Assert.assertEquals(condition, world.getPeopleQuantity());
 
     }
 }
