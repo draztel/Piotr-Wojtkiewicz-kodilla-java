@@ -11,7 +11,6 @@ public class World {
         continentList.add(continent);
     }
 
-
     public BigDecimal getPeopleQuantity() {
         return continentList.stream()
                 .flatMap(continent -> continent.countryList.stream())

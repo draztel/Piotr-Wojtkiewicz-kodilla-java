@@ -24,7 +24,7 @@ public class WorldTestSuite {
         Country country22 = new Country("Tasmania", new BigDecimal("2000"));
         Country country23 = new Country("Australia Zachodnia", new BigDecimal("2000"));
         Country country24 = new Country("Queensland", new BigDecimal("2000"));
-        Country country25 = new Country("Tonga",new BigDecimal("2000"));
+        Country country25 = new Country("Tonga", new BigDecimal("2000"));
 
         Continent Asia = new Continent("Azja");
         Continent Europe = new Continent("Europa");

@@ -43,4 +43,5 @@ public class ShapeCollector {
     public int hashCode() {
         return Objects.hash(shapes);
     }
+
 }
