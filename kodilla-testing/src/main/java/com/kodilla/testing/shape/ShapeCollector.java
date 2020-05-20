@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ShapeCollector {
-    String shapeNames = "";
-    String aBreak = " ";
+    private ArrayList<Shape> shapes = new ArrayList<Shape>();
 
-    public ArrayList<Shape> shapes = new ArrayList<Shape>();
+    public ShapeCollector() {
+    }
 
-    public ShapeCollector(Shape shape) {
+    public int shapesSize() {
+        return shapes.size();
     }
 
     public void addFigure(Shape shape) {
@@ -25,8 +26,9 @@ public class ShapeCollector {
     }
 
     public String showFigures() {
-        for(int i=0; i<shapes.size(); i++) {
-            shapeNames += getFigure(i) + aBreak;
+        String shapeNames = "";
+        for(Shape shape: shapes) {
+            shapeNames += shape.getShapeName();
         }
         return shapeNames;
     }

@@ -11,4 +11,9 @@ public class Triangle implements Shape {
         int h = 11;
         return (a * h) / 2;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{}";
+    }
 }

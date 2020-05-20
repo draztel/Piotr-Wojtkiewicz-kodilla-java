@@ -10,4 +10,9 @@ public class Square implements Shape {
         int a = 5;
         return a * a;
     }
+
+    @Override
+    public String toString() {
+        return "Square{}";
+    }
 }
