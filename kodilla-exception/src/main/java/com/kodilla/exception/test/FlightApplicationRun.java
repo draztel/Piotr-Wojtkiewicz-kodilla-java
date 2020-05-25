@@ -5,9 +5,9 @@ public class FlightApplicationRun {
         FlightApplication flightApplication = new FlightApplication();
 
         try {
-            flightApplication.findFlight(flightApplication.flight2);
+            flightApplication.findFlight(flightApplication.flight3);
         } catch (RouteNotFoundException e) {
-            System.out.println("Either flight doesn't exist or airport is not available");;
+            System.out.println("This Flight doesn't exist");
         } finally {
             System.out.println("Please try again!");
         }
