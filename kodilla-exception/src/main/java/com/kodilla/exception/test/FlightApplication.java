@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlightApplication {
-    public static Boolean isAvailable;
 
     Flight flight1 = new Flight("Poznan", "Gizycko");
     Flight flight2 = new Flight("Warszawa", "Petersburg");
