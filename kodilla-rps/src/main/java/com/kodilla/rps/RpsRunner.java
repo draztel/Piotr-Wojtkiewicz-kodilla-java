@@ -25,7 +25,7 @@ public class RpsRunner {
         while (!end) {
 
             if (roundNumber == 0) {
-                System.out.println("Please enter of points required for win");
+                System.out.println("Please enter number of points required for win");
                 do {
                     if (scan.hasNextInt()) {
                         roundNumber = scan.nextInt();
@@ -53,7 +53,7 @@ public class RpsRunner {
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
-                    System.out.println("Please enter of points required for win");
+                    System.out.println("Please enter number of points required for win");
                     do {
                         if (scan.hasNextInt()) {
                             roundNumber = scan.nextInt();
@@ -81,7 +81,7 @@ public class RpsRunner {
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
-                    System.out.println("Please enter of points required for win");
+                    System.out.println("Please enter number of points required for win");
                     do {
                         if (scan.hasNextInt()) {
                             roundNumber = scan.nextInt();
