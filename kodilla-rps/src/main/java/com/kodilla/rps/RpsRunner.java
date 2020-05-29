@@ -51,6 +51,7 @@ public class RpsRunner {
                 if (playerChoiceXOrN == 'x') {
                     System.out.println(playerNickname + " choosed to end game");
                     end = true;
+                    break;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
                     System.out.println("Please enter number of points required for win");
@@ -79,6 +80,7 @@ public class RpsRunner {
                 if (playerChoiceXOrN == 'x') {
                     System.out.println(playerNickname + " choosed to end game");
                     end = true;
+                    break;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
                     System.out.println("Please enter number of points required for win");
