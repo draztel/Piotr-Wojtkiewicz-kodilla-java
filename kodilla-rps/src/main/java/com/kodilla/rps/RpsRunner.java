@@ -8,6 +8,8 @@ public class RpsRunner {
     int playerChoice;
     int computerPoints = 0;
     int computerChoice;
+    int roundNumber;
+    String playerNickname;
     boolean end = false;
     final String rock = "ROCK";
     final String paper = "PAPER";
@@ -17,10 +19,12 @@ public class RpsRunner {
 
     public void rpsgame() throws Exception {
         System.out.println("Please type your nickname to start a game");
-        String playerNickname = scan.nextLine();
+        playerNickname = scan.nextLine();
+        System.out.println("select rounds");
+        roundNumber = scan.nextInt();
         while (!end) {
             System.out.println("Please enter a number \n1 = ROCK\n2 = PAPER\n3 = SCISSORS");
-            if (playerPoints == 3) {
+            if (playerPoints == roundNumber) {
                 System.out.println(playerNickname + " wins this game with the score of = " + playerPoints + " : " + computerPoints);
                 System.out.println("Please press \nx = END GAME\nn = NEW GAME");
                 playerChoiceXOrN = scan.next().charAt(0);
@@ -29,12 +33,14 @@ public class RpsRunner {
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
+                    System.out.println("select number of rounds");
+                    roundNumber = scan.nextInt();
                     System.out.println("Please enter a number \n1 = ROCK\n2 = PAPER\n3 = SCISSORS");
                     playerPoints = 0;
                     computerPoints = 0;
                 }
 
-            } else if (computerPoints == 3) {
+            } else if (computerPoints == roundNumber) {
                 System.out.println("Computer wins this game with the score of = " + computerPoints + " : " + playerPoints);
                 System.out.println("Please press \nx = END GAME\nn = NEW GAME");
                 playerChoiceXOrN = scan.next().charAt(0);
@@ -43,6 +49,8 @@ public class RpsRunner {
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
+                    System.out.println("select number of rounds");
+                    roundNumber = scan.nextInt();
                     System.out.println("Please enter a number \n1 = ROCK\n2 = PAPER\n3 = SCISSORS");
                     playerPoints = 0;
                     computerPoints = 0;
