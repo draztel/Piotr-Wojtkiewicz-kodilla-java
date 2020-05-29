@@ -6,7 +6,7 @@ public class RpsRunner {
     public static void main(String args[]) {
         char playerChoiceXOrN;
         int playerPoints = 0;
-        int playerChoice;
+        int playerChoice = 0;
         int computerPoints = 0;
         int computerChoice;
         int roundNumber = 0;
@@ -23,8 +23,9 @@ public class RpsRunner {
         playerNickname = scan.nextLine();
 
         while (!end) {
+
             if (roundNumber == 0) {
-                System.out.println("Type number of points to win");
+                System.out.println("Number of points required for win");
                 do {
                     if (scan.hasNextInt()) {
                         roundNumber = scan.nextInt();
@@ -37,15 +38,13 @@ public class RpsRunner {
                 } while (!isNumber);
             }
 
-
-
             System.out.println("Please enter a number \n1 = ROCK\n2 = PAPER\n3 = SCISSORS");
 
             if (playerPoints == roundNumber && roundNumber != 0) {
                 System.out.println(playerNickname + " wins this game with the score of = " + playerPoints + " : " + computerPoints);
-                System.out.println("Please press \nx = END GAME\nn = NEW GAME");
 
                 do {
+                    System.out.println("Please press \nx = END GAME\nn = NEW GAME");
                     playerChoiceXOrN = scan.next().charAt(0);
                 } while (playerChoiceXOrN != 'n' && playerChoiceXOrN != 'x');
 
@@ -54,7 +53,7 @@ public class RpsRunner {
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
-                    System.out.println("select number of rounds");
+                    System.out.println("Number of points required for win");
                     do {
                         if (scan.hasNextInt()) {
                             roundNumber = scan.nextInt();
@@ -71,16 +70,18 @@ public class RpsRunner {
                 }
             } else if (computerPoints == roundNumber && roundNumber != 0) {
                 System.out.println("Computer wins this game with the score of = " + computerPoints + " : " + playerPoints);
-                System.out.println("Please press \nx = END GAME\nn = NEW GAME");
+
                 do {
+                    System.out.println("Please press \nx = END GAME\nn = NEW GAME");
                     playerChoiceXOrN = scan.next().charAt(0);
                 } while (playerChoiceXOrN != 'n' && playerChoiceXOrN != 'x');
+
                 if (playerChoiceXOrN == 'x') {
                     System.out.println(playerNickname + " choosed to end game");
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
-                    System.out.println("select number of rounds");
+                    System.out.println("Number of points required for win");
                     do {
                         if (scan.hasNextInt()) {
                             roundNumber = scan.nextInt();
@@ -102,7 +103,7 @@ public class RpsRunner {
                     playerChoice = scan.nextInt();
                     isNumber = true;
                 } else {
-                    System.out.println("Please enter a correct number of player choice");
+                    System.out.println("Please enter a correct number of player choice!");
                     isNumber = false;
                     scan.next();
                 }
@@ -113,7 +114,7 @@ public class RpsRunner {
             if (playerChoice == computerChoice) {
                 System.out.println("its draw, none of u gets points. Try again!");
             } else if (playerChoice > 3) {
-                System.out.println("Please enter a correct number!");
+                System.out.println("Please enter a correct number of player choice!");
             } else if (playerChoice == 1) {
                 if (computerChoice == 2) {
                     System.out.println(playerNickname + " = " + rock);
@@ -166,3 +167,4 @@ public class RpsRunner {
         }
     }
 }
+
