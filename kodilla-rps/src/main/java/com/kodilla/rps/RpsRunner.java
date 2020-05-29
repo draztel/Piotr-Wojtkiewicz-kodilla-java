@@ -11,15 +11,15 @@ public class RpsRunner {
         int computerChoice;
         int roundNumber = 0;
         boolean isNumber;
-        String playerNickname;
         boolean end = false;
+        String playerNickname;
         final String rock = "ROCK";
         final String paper = "PAPER";
         final String scissors = "SCISSORS";
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Please type your nickname to start a game");
+        System.out.println("Please enter your nickname to start a game");
         playerNickname = scan.nextLine();
 
         while (!end) {
@@ -44,13 +44,13 @@ public class RpsRunner {
                 System.out.println(playerNickname + " wins this game with the score of = " + playerPoints + " : " + computerPoints);
 
                 do {
-                    System.out.println("Please press \nx = END GAME\nn = NEW GAME");
+                    System.out.println("Please enter a correct character");
+                    System.out.println("x = END GAME\nn = NEW GAME");
                     playerChoiceXOrN = scan.next().charAt(0);
                 } while (playerChoiceXOrN != 'n' && playerChoiceXOrN != 'x');
 
                 if (playerChoiceXOrN == 'x') {
                     System.out.println(playerNickname + " choosed to end game");
-                    end = true;
                     break;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
@@ -73,13 +73,13 @@ public class RpsRunner {
                 System.out.println("Computer wins this game with the score of = " + computerPoints + " : " + playerPoints);
 
                 do {
-                    System.out.println("Please press \nx = END GAME\nn = NEW GAME");
+                    System.out.println("Please enter a correct character");
+                    System.out.println("x = END GAME\nn = NEW GAME");
                     playerChoiceXOrN = scan.next().charAt(0);
                 } while (playerChoiceXOrN != 'n' && playerChoiceXOrN != 'x');
 
                 if (playerChoiceXOrN == 'x') {
                     System.out.println(playerNickname + " choosed to end game");
-                    end = true;
                     break;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
@@ -106,6 +106,7 @@ public class RpsRunner {
                     isNumber = true;
                 } else {
                     System.out.println("Please enter a correct number of player choice!");
+                    System.out.println("1 = ROCK\n2 = PAPER\n3 = SCISSORS");
                     isNumber = false;
                     scan.next();
                 }
@@ -117,6 +118,7 @@ public class RpsRunner {
                 System.out.println("its draw, none of u gets points. Try again!");
             } else if (playerChoice > 3) {
                 System.out.println("Please enter a correct number of player choice!");
+                System.out.println("1 = ROCK\n2 = PAPER\n3 = SCISSORS");
             } else if (playerChoice == 1) {
                 if (computerChoice == 2) {
                     System.out.println(playerNickname + " = " + rock);
