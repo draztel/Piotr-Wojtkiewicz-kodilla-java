@@ -3,60 +3,111 @@ package com.kodilla.rps;
 import java.util.Scanner;
 
 public class RpsRunner {
-    char playerChoiceXOrN;
-    int playerPoints = 0;
-    int playerChoice;
-    int computerPoints = 0;
-    int computerChoice;
-    int roundNumber;
-    String playerNickname;
-    boolean end = false;
-    final String rock = "ROCK";
-    final String paper = "PAPER";
-    final String scissors = "SCISSORS";
+    public static void main(String args[]) {
+        char playerChoiceXOrN;
+        int playerPoints = 0;
+        int playerChoice;
+        int computerPoints = 0;
+        int computerChoice;
+        int roundNumber = 0;
+        boolean isNumber;
+        String playerNickname;
+        boolean end = false;
+        final String rock = "ROCK";
+        final String paper = "PAPER";
+        final String scissors = "SCISSORS";
 
-    Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
-    public void rpsgame() throws Exception {
         System.out.println("Please type your nickname to start a game");
         playerNickname = scan.nextLine();
-        System.out.println("select rounds");
-        roundNumber = scan.nextInt();
+
         while (!end) {
+            if (roundNumber == 0) {
+                System.out.println("Type number of points to win");
+                do {
+                    if (scan.hasNextInt()) {
+                        roundNumber = scan.nextInt();
+                        isNumber = true;
+                    } else {
+                        System.out.println("Please enter a correct number of rounds");
+                        isNumber = false;
+                        scan.next();
+                    }
+                } while (!isNumber);
+            }
+
+
+
             System.out.println("Please enter a number \n1 = ROCK\n2 = PAPER\n3 = SCISSORS");
-            if (playerPoints == roundNumber) {
+
+            if (playerPoints == roundNumber && roundNumber != 0) {
                 System.out.println(playerNickname + " wins this game with the score of = " + playerPoints + " : " + computerPoints);
                 System.out.println("Please press \nx = END GAME\nn = NEW GAME");
-                playerChoiceXOrN = scan.next().charAt(0);
+
+                do {
+                    playerChoiceXOrN = scan.next().charAt(0);
+                } while (playerChoiceXOrN != 'n' && playerChoiceXOrN != 'x');
+
                 if (playerChoiceXOrN == 'x') {
                     System.out.println(playerNickname + " choosed to end game");
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
                     System.out.println("select number of rounds");
-                    roundNumber = scan.nextInt();
+                    do {
+                        if (scan.hasNextInt()) {
+                            roundNumber = scan.nextInt();
+                            isNumber = true;
+                        } else {
+                            System.out.println("Please enter a correct number of rounds");
+                            isNumber = false;
+                            scan.next();
+                        }
+                    } while (!isNumber);
                     System.out.println("Please enter a number \n1 = ROCK\n2 = PAPER\n3 = SCISSORS");
                     playerPoints = 0;
                     computerPoints = 0;
                 }
-
-            } else if (computerPoints == roundNumber) {
+            } else if (computerPoints == roundNumber && roundNumber != 0) {
                 System.out.println("Computer wins this game with the score of = " + computerPoints + " : " + playerPoints);
                 System.out.println("Please press \nx = END GAME\nn = NEW GAME");
-                playerChoiceXOrN = scan.next().charAt(0);
+                do {
+                    playerChoiceXOrN = scan.next().charAt(0);
+                } while (playerChoiceXOrN != 'n' && playerChoiceXOrN != 'x');
                 if (playerChoiceXOrN == 'x') {
                     System.out.println(playerNickname + " choosed to end game");
                     end = true;
                 } else if (playerChoiceXOrN == 'n') {
                     System.out.println(playerNickname + " choosed to start a new game");
                     System.out.println("select number of rounds");
-                    roundNumber = scan.nextInt();
+                    do {
+                        if (scan.hasNextInt()) {
+                            roundNumber = scan.nextInt();
+                            isNumber = true;
+                        } else {
+                            System.out.println("Please enter a correct number of rounds");
+                            isNumber = false;
+                            scan.next();
+                        }
+                    } while (!isNumber);
                     System.out.println("Please enter a number \n1 = ROCK\n2 = PAPER\n3 = SCISSORS");
                     playerPoints = 0;
                     computerPoints = 0;
                 }
             }
-            playerChoice = scan.nextInt();
+
+            do {
+                if (scan.hasNextInt()) {
+                    playerChoice = scan.nextInt();
+                    isNumber = true;
+                } else {
+                    System.out.println("Please enter a correct number of player choice");
+                    isNumber = false;
+                    scan.next();
+                }
+            } while (!isNumber);
+
             computerChoice = (int) (Math.random() * (3 - 1 + 1) + 1);
 
             if (playerChoice == computerChoice) {
@@ -112,17 +163,6 @@ public class RpsRunner {
                     System.out.println(playerNickname + " points = " + playerPoints);
                 }
             }
-        }
-    }
-
-    public static void main(String args[]) {
-        RpsRunner rpsRunner = new RpsRunner();
-        try {
-            rpsRunner.rpsgame();
-        } catch (Exception e) {
-            System.out.println("You tried to enter incorrect value.");
-        } finally {
-            System.out.println("Try again!");
         }
     }
 }
