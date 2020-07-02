@@ -1,9 +1,11 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
 public class Product {
+
     final String productType;
     final String productName;
     final double productPrice;
+    Order order;
 
     public Product(final String productType,final String productName,final double productPrice) {
         this.productType = productType;
@@ -25,10 +27,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "productType='" + productType + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productPrice=" + productPrice +
-                '}';
+        return "Product type = " + getProductType() + "\n" +
+                "Product name = " + getProductName() + "\n" +
+                "Product price = " + getProductPrice() + "zl";
     }
 }

@@ -5,6 +5,7 @@ public class Order {
     Provider provider;
     Product product;
     int quantity;
+    double finalPrice;
 
     public Order(Provider provider, Product product, int quantity) {
         this.provider = provider;
@@ -26,10 +27,14 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "provider=" + provider +
-                ", product=" + product +
-                ", quantity=" + quantity +
-                '}';
+        return "Provider = " + provider.getProviderName() + "\n" +
+                getProduct() + "\n" +
+                "Quantity = " + getQuantity() + "\n" +
+                "Final price = " + getFinalPrice() + "zl";
+    }
+
+    public double getFinalPrice() {
+        finalPrice = getQuantity() * getProduct().getProductPrice();
+        return finalPrice;
     }
 }
