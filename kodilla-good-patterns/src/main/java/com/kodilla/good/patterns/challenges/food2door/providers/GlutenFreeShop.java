@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class GlutenFreeShop implements Provider {
 
     String providerName;
-    Product product;
 
     OrderProcessor orderProcessor = new OrderProcessor(new InformationServiceByMail(), new OrderServiceApp(), new OrderRepositoryApp());
 

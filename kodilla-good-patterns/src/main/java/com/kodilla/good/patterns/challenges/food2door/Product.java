@@ -5,7 +5,6 @@ public class Product {
     final String productType;
     final String productName;
     final double productPrice;
-    Order order;
 
     public Product(final String productType,final String productName,final double productPrice) {
         this.productType = productType;

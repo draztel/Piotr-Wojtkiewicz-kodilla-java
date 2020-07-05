@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class ExtraFoodShop implements Provider {
 
     String providerName;
-    Product product;
 
     OrderProcessor orderProcessor = new OrderProcessor(new InformationServiceByMail(), new OrderServiceApp(), new OrderRepositoryApp());
 
