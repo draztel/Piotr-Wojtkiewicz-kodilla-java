@@ -4,7 +4,7 @@ import java.util.*;
 
 public interface LibraryDatabase {
 
-    List<Book> listBooksWithCondition (String titleFragment);
+    List<Book> listBooksWithCondition(String titleFragment);
 
     List<Book> listBooksInHandsOf(LibraryUser libraryUser);
 

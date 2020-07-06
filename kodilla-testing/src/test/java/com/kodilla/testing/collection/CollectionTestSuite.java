@@ -10,18 +10,22 @@ public class CollectionTestSuite {
     public void before() {
         System.out.println("Test Case: begin");
     }
+
     @After
     public void after() {
         System.out.println("Test Case: end");
     }
+
     @AfterClass
     public static void afterClass() {
         System.out.println("Test Suite: begin");
     }
+
     @BeforeClass
     public static void beforeClass() {
         System.out.println("Test Suite: end");
     }
+
     @Test
     public void testOddNumbersExterminatorEmptyList() {
         OddNumbersExterminator exterminator = new OddNumbersExterminator();
@@ -31,6 +35,7 @@ public class CollectionTestSuite {
 
         Assert.assertEquals(0, result);
     }
+
     @Test
     public void testOddNumbersExterminatorNormalList() {
         OddNumbersExterminator exterminator = new OddNumbersExterminator();

@@ -32,6 +32,7 @@ public class ForumTestSuite {
 
         Assert.assertEquals(1, forumUser.getPostsQuantity());
     }
+
     @Test
     public void testAddComment() {
         ForumUser forumUser = new ForumUser("draztel", "Piotr Wojtkiewicz");
@@ -41,6 +42,7 @@ public class ForumTestSuite {
 
         Assert.assertEquals(1, forumUser.getCommentsQuantity());
     }
+
     @Test
     public void testGetPost() {
         ForumUser forumUser = new ForumUser("draztel", "Piotr Wojtkiewicz");
@@ -51,17 +53,19 @@ public class ForumTestSuite {
 
         Assert.assertEquals(null, retrievedPost);
     }
+
     @Test
     public void testGetComment() {
         ForumUser forumUser = new ForumUser("draztel", "Piotr Wojtkiewicz");
         ForumPost thePost = new ForumPost("karasie jedzo gowno", "draztel");
         ForumComment theComment = new ForumComment(thePost, "naprawde", "draztel");
-        forumUser.addComment(theComment.getAuthor(),thePost, theComment.getCommentBody());
+        forumUser.addComment(theComment.getAuthor(), thePost, theComment.getCommentBody());
 
         ForumComment retrievedComment = forumUser.getComment(0);
 
         Assert.assertEquals(theComment, retrievedComment);
     }
+
     @Test
     public void testRemovePostNotExisting() {
         ForumUser forumUser = new ForumUser("draztel", "Piotr Wojtkiewicz");
@@ -71,16 +75,18 @@ public class ForumTestSuite {
 
         Assert.assertFalse(result);
     }
+
     @Test
     public void testRemoveCommentNotExisting() {
         ForumUser forumUser = new ForumUser("draztel", "Piotr Wojtkiewicz");
-        ForumPost thePost = new ForumPost("karasie jedzo gowno","draztel");
-        ForumComment theComment = new ForumComment(thePost, "naprawde","draztel");
+        ForumPost thePost = new ForumPost("karasie jedzo gowno", "draztel");
+        ForumComment theComment = new ForumComment(thePost, "naprawde", "draztel");
 
         boolean result = forumUser.removeComment(theComment);
 
         Assert.assertFalse(result);
     }
+
     @Test
     public void testRemovePost() {
         ForumUser forumUser = new ForumUser("draztel", "Piotr Wojtkiewicz");
@@ -92,11 +98,12 @@ public class ForumTestSuite {
         Assert.assertTrue(result);
         Assert.assertEquals(0, forumUser.getPostsQuantity());
     }
+
     @Test
     public void testRemoveComment() {
         ForumUser forumUser = new ForumUser("draztel", "Piotr Wojtkiewicz");
-        ForumPost thePost = new ForumPost("karasie jedzo gowno","draztel");
-        ForumComment theComment = new ForumComment(thePost, "naprawde","draztel");
+        ForumPost thePost = new ForumPost("karasie jedzo gowno", "draztel");
+        ForumComment theComment = new ForumComment(thePost, "naprawde", "draztel");
         forumUser.addComment(theComment.getAuthor(), thePost, theComment.getCommentBody());
 
         boolean result = forumUser.removeComment(theComment);

@@ -20,12 +20,12 @@ public class ForumUser {
     }
 
     public void addComment(String author, ForumPost thePost, String commentBody) {
-       ForumComment theComment = new ForumComment(thePost, commentBody, author);
-       comments.add(theComment);
+        ForumComment theComment = new ForumComment(thePost, commentBody, author);
+        comments.add(theComment);
     }
 
     public int getPostsQuantity() {
-       return posts.size();
+        return posts.size();
     }
 
     public int getCommentsQuantity() {
@@ -42,7 +42,7 @@ public class ForumUser {
 
     public ForumComment getComment(int commentNumber) {
         ForumComment theComment = null;
-        if(commentNumber >= 0 && commentNumber < comments.size()) {
+        if (commentNumber >= 0 && commentNumber < comments.size()) {
             theComment = comments.get(commentNumber);
         }
         return theComment;
@@ -50,7 +50,7 @@ public class ForumUser {
 
     public boolean removePost(ForumPost thePost) {
         boolean result = false;
-        if(posts.contains(thePost)) {
+        if (posts.contains(thePost)) {
             posts.remove(thePost);
             result = true;
         }
@@ -59,7 +59,7 @@ public class ForumUser {
 
     public boolean removeComment(ForumComment theComment) {
         boolean result = false;
-        if(comments.contains(theComment)) {
+        if (comments.contains(theComment)) {
             comments.remove(theComment);
             result = true;
         }

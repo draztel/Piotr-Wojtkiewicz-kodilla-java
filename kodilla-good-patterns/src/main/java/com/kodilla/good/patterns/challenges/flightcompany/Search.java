@@ -2,6 +2,7 @@ package com.kodilla.good.patterns.challenges.flightcompany;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Search {
@@ -20,14 +21,37 @@ public class Search {
                 .forEach(System.out::println);
     }
 
-    public void searchStopAndTo(ArrayList<Flight> flightList,String cityNameStop, String cityNameTo) {
+    public void searchStopAndTo(ArrayList<Flight> flightList,String cityNameFrom, String cityNameTo) {
 
-        List<Flight> resultList =
-        flightList.stream()
-                .filter(flight -> flight.getStop().equals(cityNameStop))
-                .filter(flight -> flight.getTo().equals(cityNameTo))
-                .collect(Collectors.toList());
+        Set<Flight> resultListFrom =
+                flightList.stream()
+                        .filter(flight -> flight.getFrom().equals(cityNameFrom))
+                        .collect(Collectors.toSet());
 
-        System.out.println(resultList);
+        Set<Flight> resultListTo =
+                flightList.stream()
+                        .filter(flight -> flight.getTo().equals(cityNameTo))
+                        .collect(Collectors.toSet());
+
+        Set<Flight> resultListOfAll =
+                flightList.stream()
+                        .collect(Collectors.toSet());
+
+        for (Flight flight1 : resultListFrom) {
+            for (Flight flight2 : resultListTo) {
+                for (Flight flight3 : resultListOfAll) {
+                    if (flight1.getTo().equals(flight2.getFrom())) {
+                        System.out.println(flight1);
+                        System.out.println(flight2);
+                    } else if (flight1.getTo().equals(flight3.getFrom()) && flight2.getFrom().equals(flight3.getTo())) {
+                        System.out.println(flight1);
+                        System.out.println(flight3);
+                        System.out.println(flight2);
+                    } else {
+                        System.out.println("Can't find required flights");
+                    }
+                }
+            }
+        }
     }
 }

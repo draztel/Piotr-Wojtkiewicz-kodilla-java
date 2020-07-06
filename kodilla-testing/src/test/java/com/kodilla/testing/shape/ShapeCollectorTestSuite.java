@@ -9,15 +9,18 @@ public class ShapeCollectorTestSuite {
     public static void beforeAllTests() {
         System.out.println("Begin the tests");
     }
+
     @AfterClass
     public static void afterAllTests() {
         System.out.println("tests are finished");
     }
+
     @Before
     public void beforeTest() {
         testCounter++;
         System.out.println("Executing test number #" + testCounter);
     }
+
     @Test
     public void testAddFigure() {
         ShapeCollector shapeCollector = new ShapeCollector();
@@ -26,6 +29,7 @@ public class ShapeCollectorTestSuite {
 
         Assert.assertEquals(1, shapeCollector.shapesSize());
     }
+
     @Test
     public void testRemoveFigure() {
         ShapeCollector shapeCollector = new ShapeCollector();
@@ -36,6 +40,7 @@ public class ShapeCollectorTestSuite {
 
         Assert.assertEquals(0, shapeCollector.shapesSize());
     }
+
     @Test
     public void testGetFigure() {
         ShapeCollector shapeCollector = new ShapeCollector();
@@ -46,6 +51,7 @@ public class ShapeCollectorTestSuite {
 
         Assert.assertEquals("Circle", result);
     }
+
     @Test
     public void testShowFigures() {
         ShapeCollector shapeCollector = new ShapeCollector();

@@ -12,14 +12,14 @@ public class BookLibrary {
 
     public List<Book> listBooksWithCondition(String titleFragment) {
         List<Book> bookList = new ArrayList<Book>();
-        if(titleFragment.length() < 3) return bookList;
+        if (titleFragment.length() < 3) return bookList;
         List<Book> resultList = libraryDatabase.listBooksWithCondition(titleFragment);
-        if(resultList.size() > 20) return bookList;
+        if (resultList.size() > 20) return bookList;
         bookList = resultList;
         return bookList;
     }
 
-    public List<Book>listBooksInHandsOf(LibraryUser libraryUser) {
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
         List<Book> resultlist = libraryDatabase.listBooksInHandsOf(libraryUser);
         return resultlist;
     }
