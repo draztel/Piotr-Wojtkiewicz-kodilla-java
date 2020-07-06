@@ -5,21 +5,15 @@ import java.util.Objects;
 public class Flight {
 
     String from;
-    String stop;
     String to;
 
-    public Flight(String from, String stop, String to) {
+    public Flight(String from, String to) {
         this.from = from;
-        this.stop = stop;
         this.to = to;
     }
 
     public String getFrom() {
         return from;
-    }
-
-    public String getStop() {
-        return stop;
     }
 
     public String getTo() {
@@ -30,7 +24,6 @@ public class Flight {
     public String toString() {
         return "Flight{" +
                 "from='" + from + '\'' +
-                ", stop='" + stop + '\'' +
                 ", to='" + to + '\'' +
                 '}';
     }
@@ -41,12 +34,11 @@ public class Flight {
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
         return from.equals(flight.from) &&
-                stop.equals(flight.stop) &&
                 to.equals(flight.to);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(from, stop, to);
+        return Objects.hash(from, to);
     }
 }

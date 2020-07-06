@@ -9,6 +9,6 @@ public class Application {
 
         search.searchTo(repository.flightList, "Warszawa");
         search.searchFrom(repository.flightList, "Krakow");
-        search.searchStopAndTo(repository.flightList, "Poznan", "Krakow");
+        search.searchStopAndTo(repository.flightList, "Warszawa", "Bydgoszcz");
     }
 }

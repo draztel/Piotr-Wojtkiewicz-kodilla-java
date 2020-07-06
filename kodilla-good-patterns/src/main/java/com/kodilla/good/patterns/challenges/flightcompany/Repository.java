@@ -13,10 +13,10 @@ public class Repository {
     ArrayList<Flight> flightList = new ArrayList<>();
 
     public Repository() {
-        flightList.add(new Flight(warszawa.getCityName(), bydgoszcz.getCityName(), zielonaGora.getCityName()));
-        flightList.add(new Flight(bydgoszcz.getCityName(), zielonaGora.getCityName(), poznan.getCityName()));
-        flightList.add(new Flight(zielonaGora.getCityName(), poznan.getCityName(), krakow.getCityName()));
-        flightList.add(new Flight(poznan.getCityName(), krakow.getCityName(), warszawa.getCityName()));
-        flightList.add(new Flight(krakow.getCityName(), warszawa.getCityName(), bydgoszcz.getCityName()));
+        flightList.add(new Flight(warszawa.getCityName(), zielonaGora.getCityName()));
+        flightList.add(new Flight(zielonaGora.getCityName(), krakow.getCityName()));
+        flightList.add(new Flight(krakow.getCityName(), bydgoszcz.getCityName()));
+        flightList.add(new Flight(poznan.getCityName(), warszawa.getCityName()));
+        flightList.add(new Flight(warszawa.getCityName(), poznan.getCityName()));
     }
 }

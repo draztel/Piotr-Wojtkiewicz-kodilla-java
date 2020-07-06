@@ -21,7 +21,7 @@ public class Search {
                 .forEach(System.out::println);
     }
 
-    public void searchStopAndTo(ArrayList<Flight> flightList,String cityNameFrom, String cityNameTo) {
+    public void searchStopAndTo(ArrayList<Flight> flightList, String cityNameFrom, String cityNameTo) {
 
         Set<Flight> resultListFrom =
                 flightList.stream()
@@ -37,18 +37,20 @@ public class Search {
                 flightList.stream()
                         .collect(Collectors.toSet());
 
+        boolean end = false;
+
         for (Flight flight1 : resultListFrom) {
             for (Flight flight2 : resultListTo) {
                 for (Flight flight3 : resultListOfAll) {
-                    if (flight1.getTo().equals(flight2.getFrom())) {
+                    if (flight1.getTo().equals(flight2.getFrom()) && !end) {
                         System.out.println(flight1);
                         System.out.println(flight2);
-                    } else if (flight1.getTo().equals(flight3.getFrom()) && flight2.getFrom().equals(flight3.getTo())) {
+                        end = true;
+                    } else if (flight1.getTo().equals(flight3.getFrom()) && flight2.getFrom().equals(flight3.getTo()) && !end) {
                         System.out.println(flight1);
                         System.out.println(flight3);
                         System.out.println(flight2);
-                    } else {
-                        System.out.println("Can't find required flights");
+                        end = true;
                     }
                 }
             }
