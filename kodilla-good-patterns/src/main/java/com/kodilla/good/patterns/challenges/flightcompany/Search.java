@@ -33,15 +33,11 @@ public class Search {
                         .filter(flight -> flight.getTo().equals(cityNameTo))
                         .collect(Collectors.toSet());
 
-        Set<Flight> resultListOfAll =
-                flightList.stream()
-                        .collect(Collectors.toSet());
-
         boolean end = false;
 
         for (Flight flight1 : resultListFrom) {
             for (Flight flight2 : resultListTo) {
-                for (Flight flight3 : resultListOfAll) {
+                for (Flight flight3 : flightList) {
                     if (flight1.getTo().equals(flight2.getFrom()) && !end) {
                         System.out.println(flight1);
                         System.out.println(flight2);
