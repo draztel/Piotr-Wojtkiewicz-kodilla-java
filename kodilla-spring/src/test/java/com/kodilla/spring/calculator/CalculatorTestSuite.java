@@ -15,8 +15,11 @@ public class CalculatorTestSuite {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Display display = context.getBean(Display.class);
+        Calculator calculator = context.getBean(Calculator.class);
         //When
-        display.displayValue(10);
+        calculator.add(2, 2);
+        calculator.sub(2, 2);
+        calculator.mul(2, 2);
+        calculator.div(9, 3);
     }
 }
