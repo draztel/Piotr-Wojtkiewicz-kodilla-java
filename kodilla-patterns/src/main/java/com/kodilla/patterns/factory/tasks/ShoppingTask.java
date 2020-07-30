@@ -3,10 +3,10 @@ package com.kodilla.patterns.factory.tasks;
 import java.util.List;
 
 public class ShoppingTask implements Task {
-    String taskName;
-    String whatToBuy;
-    double quantity;
-    List executedTasks;
+    private String taskName;
+    private String whatToBuy;
+    private double quantity;
+    private List executedTasks;
 
     public ShoppingTask(String taskName, String whatToBuy, double quantity) {
         this.taskName = taskName;
@@ -27,7 +27,7 @@ public class ShoppingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if(executeTask() == true) {
+        if(executeTask()) {
             executedTasks.add(getTaskName());
             return true;
         } else {

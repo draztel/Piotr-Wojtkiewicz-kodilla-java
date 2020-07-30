@@ -3,10 +3,10 @@ package com.kodilla.patterns.factory.tasks;
 import java.util.List;
 
 public class DivingTask implements Task {
-    String taskName;
-    String where;
-    String using;
-    List executedTasks;
+    private String taskName;
+    private String where;
+    private String using;
+    private List executedTasks;
 
     public DivingTask(String taskName, String where, String using) {
         this.taskName = taskName;
@@ -27,7 +27,7 @@ public class DivingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if(executeTask() == true) {
+        if(executeTask()) {
             executedTasks.add(getTaskName());
             return true;
         } else {
