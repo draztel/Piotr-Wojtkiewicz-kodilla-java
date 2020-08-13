@@ -12,7 +12,6 @@ public class TaskFinancialDetails {
     private boolean paid;
 
     public TaskFinancialDetails() {
-
     }
 
     public TaskFinancialDetails(BigDecimal price, boolean paid) {
@@ -38,15 +37,15 @@ public class TaskFinancialDetails {
         return paid;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
-    public void setPrice(BigDecimal price) {
+    private void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public void setPaid(boolean paid) {
+    private void setPaid(boolean paid) {
         this.paid = paid;
     }
 }
