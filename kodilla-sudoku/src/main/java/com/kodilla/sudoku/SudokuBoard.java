@@ -50,6 +50,7 @@ public class SudokuBoard {
             row -= 1;
             column -= 1;
             getSudokuRowsAsBoard().get(row).getSudokuElementsAsRow().get(column).setValue(value);
+            System.out.println(toString());
             return true;
         }
     }
