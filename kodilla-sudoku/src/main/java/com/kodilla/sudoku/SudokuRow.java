@@ -1,24 +1,18 @@
 package com.kodilla.sudoku;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SudokuRow {
 
-    public ArrayList<SudokuElement> sudokuElementsAsRow = new ArrayList<>();
+    private ArrayList<SudokuElement> sudokuElementsAsRow = new ArrayList<>();
     {
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
-        sudokuElementsAsRow.add(new SudokuElement());
+        for(int i = 0; i < 9; i++) {
+            sudokuElementsAsRow.add(i, new SudokuElement());
+        }
     }
 
-    @Override
-    public String toString() {
-        return "" + sudokuElementsAsRow + "\n";
+    public ArrayList<SudokuElement> getSudokuElementsAsRow() {
+        return sudokuElementsAsRow;
     }
 }
