@@ -15,6 +15,5 @@ public class SudokuElementTestSuite {
         Assert.assertEquals(1, firstNumber);
         Assert.assertEquals(9,lastNumber);
         Assert.assertEquals(9, numbersSize);
-
     }
 }

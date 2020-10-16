@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class SudokuRow {
 
-    private ArrayList<SudokuElement> sudokuElementsAsRow = new ArrayList<>();
+    public ArrayList<SudokuElement> sudokuElementsAsRow = new ArrayList<>();
     {
         for(int i = 0; i < 9; i++) {
             sudokuElementsAsRow.add(i, new SudokuElement());

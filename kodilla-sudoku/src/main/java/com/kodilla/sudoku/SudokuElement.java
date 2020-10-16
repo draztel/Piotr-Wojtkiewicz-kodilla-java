@@ -1,7 +1,6 @@
 package com.kodilla.sudoku;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class SudokuElement {
     private int value = 0;
@@ -25,5 +24,4 @@ public class SudokuElement {
     public ArrayList<Integer> getNumbers() {
         return numbers;
     }
-
 }
