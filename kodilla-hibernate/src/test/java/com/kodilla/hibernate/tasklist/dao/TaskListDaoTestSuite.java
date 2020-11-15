@@ -111,7 +111,6 @@ public class TaskListDaoTestSuite {
             Assert.assertEquals(1, longTasks.size());
             Assert.assertEquals(3, shortTasks.size());
             Assert.assertEquals(3, enoughTimeTasks.size());
-            Assert.assertEquals(2, durationLongerThanTasks);
         } finally {
             //CleanUp
             taskListDao.deleteById(id);
