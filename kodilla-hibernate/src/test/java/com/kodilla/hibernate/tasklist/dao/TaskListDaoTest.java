@@ -18,7 +18,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TaskListDaoTestSuite {
+public class TaskListDaoTest {
     @Autowired
     private TaskListDao taskListDao;
     @Autowired
