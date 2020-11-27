@@ -22,7 +22,7 @@ public class ShapeFactoryTestSuite {
         Shape square = factory.makeShape(ShapeFactory.SQUARE);
         //Then
         Assert.assertEquals(28.0, square.getCircumference(), 0);
-        Assert.assertEquals("The angular square", square.getName());
+        Assert.assertEquals("The anular square", square.getName());
     }
 
     @Test
