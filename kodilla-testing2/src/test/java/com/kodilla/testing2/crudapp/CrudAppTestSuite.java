@@ -102,7 +102,7 @@ public class CrudAppTestSuite {
         return result;
     }
 
-    private void deleteTestTaskFromCrudApp(String taskName) throws InterruptedException {
+    private void deleteTestTaskFromCrudApp(String taskName) {
         driver.switchTo().alert().accept();
 
         while(!driver.findElement(By.xpath("//button[4]")).isDisplayed());
