@@ -8,9 +8,9 @@ public class SudokuGame {
     public static void main(String[]args) {
         Scanner scan = new Scanner(System.in);
         String playerDecision = "";
-        SudokuBoard sudokuBoard = new SudokuBoard();
-        SudokuProcessor processor = new SudokuProcessor();
-        SudokuProcessor sudokuProcessor = new SudokuProcessor();
+        SudokuSystem processor = new SudokuSystem();
+        SudokuSystem sudokuSystem = new SudokuSystem();
+        SudokuBoard sudokuBoard = sudokuSystem.createBoard();
         boolean gameFinished = false;
 
         while(!gameFinished) {
@@ -23,7 +23,7 @@ public class SudokuGame {
             playerDecision = scan.nextLine();
 
             if(playerDecision.equals("FILL")) {
-                sudokuProcessor.setSudokuValue(sudokuBoard);
+                sudokuSystem.setSudokuValue(sudokuBoard);
             } else if(playerDecision.equals("SUDOKU")) {
                 try{
                     processor.eliminateNumbers(sudokuBoard);

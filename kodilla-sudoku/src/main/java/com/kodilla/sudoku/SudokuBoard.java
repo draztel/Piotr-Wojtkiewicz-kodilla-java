@@ -9,13 +9,7 @@ public class SudokuBoard {
     private SudokuRow sudokuRow;
     private Scanner scan = new Scanner(System.in);
     private static final int MAX_SIZE = 9;
-
-    public ArrayList<SudokuRow> sudokuRowsAsBoard = new ArrayList<>();
-    {
-        for(int i = 0; i < 9; i++) {
-            sudokuRowsAsBoard.add(i, new SudokuRow());
-        }
-    }
+    public ArrayList<SudokuRow> sudokuRowsAsBoard;
 
     public ArrayList<SudokuRow> getSudokuRowsAsBoard() {
         return sudokuRowsAsBoard;

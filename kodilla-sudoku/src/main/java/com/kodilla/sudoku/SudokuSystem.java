@@ -4,7 +4,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 
 import java.util.Scanner;
 
-public class SudokuProcessor {
+public class SudokuSystem {
     private SudokuRow sudokuRow = new SudokuRow();
     private SudokuBoard sudokuBoard = new SudokuBoard();
     private Scanner scan = new Scanner(System.in);
@@ -60,6 +60,17 @@ public class SudokuProcessor {
             }
         }
         return true;
+    }
+
+    public SudokuBoard createBoard() {
+        SudokuBoard board = new SudokuBoard();
+        for (int i = 0; i < 9; i++) {
+            board.getSudokuRowsAsBoard().add(i, new SudokuRow());
+            for(int j = 0; j < 9; j++) {
+                board.getSudokuRowsAsBoard().get(j).getSudokuElementsAsRow().add(i, new SudokuElement());
+            }
+        }
+        return board;
     }
 
 
