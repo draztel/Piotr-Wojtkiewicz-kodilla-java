@@ -2,11 +2,11 @@ package com.kodilla.sudoku;
 
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class SudokuSystem {
-    private SudokuRow sudokuRow = new SudokuRow();
-    private SudokuBoard sudokuBoard = new SudokuBoard();
     private Scanner scan = new Scanner(System.in);
     private static final int MAX_SIZE = 9;
     private int row;
@@ -65,14 +65,13 @@ public class SudokuSystem {
     public SudokuBoard createBoard() {
         SudokuBoard board = new SudokuBoard();
         for (int i = 0; i < 9; i++) {
-            board.getSudokuRowsAsBoard().add(i, new SudokuRow());
             for(int j = 0; j < 9; j++) {
-                board.getSudokuRowsAsBoard().get(j).getSudokuElementsAsRow().add(i, new SudokuElement());
+                board.getSudokuRowsAsBoard().add(new SudokuRow(i));
+                board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().add(new SudokuElement());
             }
         }
         return board;
     }
-
 
     public int getColumn() {
         return column;

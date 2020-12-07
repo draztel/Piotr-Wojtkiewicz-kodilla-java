@@ -6,10 +6,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SudokuBoard {
-    private SudokuRow sudokuRow;
     private Scanner scan = new Scanner(System.in);
     private static final int MAX_SIZE = 9;
-    public ArrayList<SudokuRow> sudokuRowsAsBoard;
+    public ArrayList<SudokuRow> sudokuRowsAsBoard = new ArrayList<>();
 
     public ArrayList<SudokuRow> getSudokuRowsAsBoard() {
         return sudokuRowsAsBoard;
@@ -37,5 +36,18 @@ public class SudokuBoard {
         boardBuilder.append("-------------------");
         boardBuilder.deleteCharAt(240);
         return boardBuilder.toString();
+    }
+
+    public SudokuBoard deepCopy() throws CloneNotSupportedException {
+        SudokuBoard clonedBoard = (SudokuBoard)super.clone();
+        clonedBoard.sudokuRowsAsBoard = new ArrayList<>();
+        for(SudokuRow sudokuRow : sudokuRowsAsBoard) {
+            SudokuRow clonedSudokuRow = new SudokuRow(sudokuRow.getRow());
+            for(SudokuElement sudokuElement : sudokuRow.getSudokuElementsAsRow()) {
+                clonedSudokuRow.getSudokuElementsAsRow().add(sudokuElement);
+            }
+            clonedBoard.getSudokuRowsAsBoard().add(clonedSudokuRow);
+        }
+        return clonedBoard;
     }
 }
