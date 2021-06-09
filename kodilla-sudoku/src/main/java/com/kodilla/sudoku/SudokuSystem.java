@@ -73,6 +73,50 @@ public class SudokuSystem {
         return board;
     }
 
+    public SudokuBoard testBoard(SudokuBoard board) {
+
+        board.getSudokuRowsAsBoard().get(0).getSudokuElementsAsRow().get(0).setValue(5);
+        board.getSudokuRowsAsBoard().get(0).getSudokuElementsAsRow().get(1).setValue(3);
+        board.getSudokuRowsAsBoard().get(0).getSudokuElementsAsRow().get(4).setValue(7);
+
+        board.getSudokuRowsAsBoard().get(1).getSudokuElementsAsRow().get(0).setValue(6);
+        board.getSudokuRowsAsBoard().get(1).getSudokuElementsAsRow().get(3).setValue(1);
+        board.getSudokuRowsAsBoard().get(1).getSudokuElementsAsRow().get(4).setValue(9);
+        board.getSudokuRowsAsBoard().get(1).getSudokuElementsAsRow().get(5).setValue(5);
+
+        board.getSudokuRowsAsBoard().get(2).getSudokuElementsAsRow().get(1).setValue(9);
+        board.getSudokuRowsAsBoard().get(2).getSudokuElementsAsRow().get(2).setValue(8);
+        board.getSudokuRowsAsBoard().get(2).getSudokuElementsAsRow().get(7).setValue(6);
+
+        board.getSudokuRowsAsBoard().get(3).getSudokuElementsAsRow().get(0).setValue(8);
+        board.getSudokuRowsAsBoard().get(3).getSudokuElementsAsRow().get(4).setValue(6);
+        board.getSudokuRowsAsBoard().get(3).getSudokuElementsAsRow().get(8).setValue(3);
+
+        board.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(0).setValue(4);
+        board.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(3).setValue(8);
+        board.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(5).setValue(3);
+        board.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(8).setValue(1);
+
+        board.getSudokuRowsAsBoard().get(5).getSudokuElementsAsRow().get(0).setValue(7);
+        board.getSudokuRowsAsBoard().get(5).getSudokuElementsAsRow().get(4).setValue(2);
+        board.getSudokuRowsAsBoard().get(5).getSudokuElementsAsRow().get(8).setValue(6);
+
+        board.getSudokuRowsAsBoard().get(6).getSudokuElementsAsRow().get(1).setValue(6);
+        board.getSudokuRowsAsBoard().get(6).getSudokuElementsAsRow().get(6).setValue(2);
+        board.getSudokuRowsAsBoard().get(6).getSudokuElementsAsRow().get(7).setValue(8);
+
+        board.getSudokuRowsAsBoard().get(7).getSudokuElementsAsRow().get(3).setValue(4);
+        board.getSudokuRowsAsBoard().get(7).getSudokuElementsAsRow().get(4).setValue(1);
+        board.getSudokuRowsAsBoard().get(7).getSudokuElementsAsRow().get(5).setValue(9);
+        board.getSudokuRowsAsBoard().get(7).getSudokuElementsAsRow().get(8).setValue(5);
+
+        board.getSudokuRowsAsBoard().get(8).getSudokuElementsAsRow().get(4).setValue(8);
+        board.getSudokuRowsAsBoard().get(8).getSudokuElementsAsRow().get(7).setValue(7);
+        board.getSudokuRowsAsBoard().get(8).getSudokuElementsAsRow().get(8).setValue(9);
+
+        return board;
+    }
+
     public int getColumn() {
         return column;
     }

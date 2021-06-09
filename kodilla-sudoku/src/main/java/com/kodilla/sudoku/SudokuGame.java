@@ -9,8 +9,7 @@ public class SudokuGame {
         Scanner scan = new Scanner(System.in);
         String playerDecision = "";
         SudokuSystem processor = new SudokuSystem();
-        SudokuSystem sudokuSystem = new SudokuSystem();
-        SudokuBoard sudokuBoard = sudokuSystem.createBoard();
+        SudokuBoard sudokuBoard = processor.createBoard();
         boolean gameFinished = false;
 
         while(!gameFinished) {
@@ -23,7 +22,7 @@ public class SudokuGame {
             playerDecision = scan.nextLine();
 
             if(playerDecision.equals("FILL")) {
-                sudokuSystem.setSudokuValue(sudokuBoard);
+                processor.setSudokuValue(sudokuBoard);
             } else if(playerDecision.equals("SUDOKU")) {
                 try{
                     processor.eliminateNumbers(sudokuBoard);
@@ -31,7 +30,11 @@ public class SudokuGame {
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println("index out of bound");
                 }
-            } else if(playerDecision.equals("END")) {
+            } else if(playerDecision.equals("TESTBOARD")) {
+                processor.testBoard(sudokuBoard);
+                System.out.println(sudokuBoard);
+            }
+            else if(playerDecision.equals("END")) {
                 gameFinished = true;
             }
         }
