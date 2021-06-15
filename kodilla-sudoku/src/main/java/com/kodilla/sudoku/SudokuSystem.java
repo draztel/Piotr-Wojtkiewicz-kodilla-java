@@ -54,8 +54,80 @@ public class SudokuSystem {
             for(int j = 0; j < MAX_SIZE; j++) {
                 int temporaryValue = board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getValue();
                 for(int k = 0; k < MAX_SIZE; k++) {
-                    board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(k).getNumbers().remove(temporaryValue);
-                    board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(j).getNumbers().remove(temporaryValue);
+                    if(temporaryValue > 0) {
+                        board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(k).getNumbers().remove(temporaryValue);
+                        board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(j).getNumbers().remove(temporaryValue);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean eliminateNumbersInGrid(SudokuBoard board) {
+        for(int i = 0; i < MAX_SIZE; i++) {
+            for(int j = 0; j < MAX_SIZE; j++) {
+                int temporaryValue = board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getValue();
+                if(i < 3) {
+                    if(j < 3) {
+                        for(int k = 0; k < 3; k++) {
+                            for(int l = 0; l < 3; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    } else if(j > 2 && j < 6) {
+                        for(int k = 0; k < 3; k++) {
+                            for(int l = 3; l < 6; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    }  else if(j > 5 && j < 9) {
+                        for(int k = 0; k < 3; k++) {
+                            for(int l = 6; l < 9; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    }
+                } else if(i > 2 && i < 6) {
+                    if(j < 3) {
+                        for(int k = 3; k < 6; k++) {
+                            for(int l = 0; l < 3; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    } else if(j > 2 && j < 6) {
+                        for(int k = 3; k < 6; k++) {
+                            for(int l = 3; l < 6; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    }  else if(j > 5 && j < 9) {
+                        for(int k = 3; k < 6; k++) {
+                            for(int l = 6; l < 9; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    }
+                } else if(i > 5 && i < 9) {
+                    if(j < 3) {
+                        for(int k = 6; k < 9; k++) {
+                            for(int l = 0; l < 3; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    } else if(j > 2 && j < 6) {
+                        for(int k = 6; k < 9; k++) {
+                            for(int l = 3; l < 6; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    }  else if(j > 5 && j < 9) {
+                        for(int k = 6; k < 9; k++) {
+                            for(int l = 6; l < 9; l++) {
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                            }
+                        }
+                    }
                 }
             }
         }

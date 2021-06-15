@@ -25,7 +25,9 @@ public class SudokuGame {
                 processor.setSudokuValue(sudokuBoard);
             } else if(playerDecision.equals("SUDOKU")) {
                 try{
+                    System.out.println(sudokuBoard.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(2).getNumbers().size());
                     processor.eliminateNumbers(sudokuBoard);
+                    System.out.println(sudokuBoard.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(2).getNumbers().size());
                     processor.putNumber(sudokuBoard);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println("index out of bound");
