@@ -16,7 +16,7 @@ public class SudokuGame {
             if(playerDecision.equals("")) {
                 System.out.println(sudokuBoard);
             }
-            System.out.println("Type FILL if you want to fill more elements with numbers\n" +
+            System.out.println(sudokuBoard + "\nType FILL if you want to fill more elements with numbers\n" +
                     "Type SUDOKU to solve sudoku\n" +
                     "Type END to finish the game");
             playerDecision = scan.nextLine();
@@ -25,12 +25,13 @@ public class SudokuGame {
                 processor.setSudokuValue(sudokuBoard);
             } else if(playerDecision.equals("SUDOKU")) {
                 try{
-                    System.out.println(sudokuBoard.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(2).getNumbers().size());
+                    System.out.println(sudokuBoard.getSudokuRowsAsBoard().get(0).getSudokuElementsAsRow().get(2).getNumbers().size());
                     processor.eliminateNumbers(sudokuBoard);
-                    System.out.println(sudokuBoard.getSudokuRowsAsBoard().get(4).getSudokuElementsAsRow().get(2).getNumbers().size());
+                    processor.eliminateNumbersInGrid(sudokuBoard);
+                    System.out.println(sudokuBoard.getSudokuRowsAsBoard().get(0).getSudokuElementsAsRow().get(2).getNumbers().size());
                     processor.putNumber(sudokuBoard);
                 } catch (IndexOutOfBoundsException e) {
-                    System.out.println("index out of bound");
+                    System.out.println("IOOBE");
                 }
             } else if(playerDecision.equals("TESTBOARD")) {
                 processor.testBoard(sudokuBoard);

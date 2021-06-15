@@ -55,8 +55,8 @@ public class SudokuSystem {
                 int temporaryValue = board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getValue();
                 for(int k = 0; k < MAX_SIZE; k++) {
                     if(temporaryValue > 0) {
-                        board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(k).getNumbers().remove(temporaryValue);
-                        board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(j).getNumbers().remove(temporaryValue);
+                        board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(k).getNumbers().remove(new Integer(temporaryValue));
+                        board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(j).getNumbers().remove(new Integer(temporaryValue));
                     }
                 }
             }
@@ -72,19 +72,19 @@ public class SudokuSystem {
                     if(j < 3) {
                         for(int k = 0; k < 3; k++) {
                             for(int l = 0; l < 3; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     } else if(j > 2 && j < 6) {
                         for(int k = 0; k < 3; k++) {
                             for(int l = 3; l < 6; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     }  else if(j > 5 && j < 9) {
                         for(int k = 0; k < 3; k++) {
                             for(int l = 6; l < 9; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     }
@@ -92,19 +92,19 @@ public class SudokuSystem {
                     if(j < 3) {
                         for(int k = 3; k < 6; k++) {
                             for(int l = 0; l < 3; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     } else if(j > 2 && j < 6) {
                         for(int k = 3; k < 6; k++) {
                             for(int l = 3; l < 6; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     }  else if(j > 5 && j < 9) {
                         for(int k = 3; k < 6; k++) {
                             for(int l = 6; l < 9; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     }
@@ -112,19 +112,19 @@ public class SudokuSystem {
                     if(j < 3) {
                         for(int k = 6; k < 9; k++) {
                             for(int l = 0; l < 3; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     } else if(j > 2 && j < 6) {
                         for(int k = 6; k < 9; k++) {
                             for(int l = 3; l < 6; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     }  else if(j > 5 && j < 9) {
                         for(int k = 6; k < 9; k++) {
                             for(int l = 6; l < 9; l++) {
-                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(temporaryValue);
+                                board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(temporaryValue));
                             }
                         }
                     }
