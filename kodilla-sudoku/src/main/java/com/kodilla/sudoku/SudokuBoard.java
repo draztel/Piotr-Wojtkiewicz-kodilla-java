@@ -2,16 +2,18 @@ package com.kodilla.sudoku;
 
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
-public class SudokuBoard {
+public class SudokuBoard extends Prototype {
     private Scanner scan = new Scanner(System.in);
     private static final int MAX_SIZE = 9;
     public ArrayList<SudokuRow> sudokuRowsAsBoard = new ArrayList<>();
-
+    public ArrayList<SudokuBoard> boardCopies = new ArrayList<>();
     public ArrayList<SudokuRow> getSudokuRowsAsBoard() {
         return sudokuRowsAsBoard;
+    }
+    public ArrayList<SudokuBoard> getBoardCopies() {
+        return boardCopies;
     }
 
     @Override
@@ -41,12 +43,14 @@ public class SudokuBoard {
     public SudokuBoard deepCopy() throws CloneNotSupportedException {
         SudokuBoard clonedBoard = (SudokuBoard)super.clone();
         clonedBoard.sudokuRowsAsBoard = new ArrayList<>();
-        for(SudokuRow sudokuRow : sudokuRowsAsBoard) {
-            SudokuRow clonedSudokuRow = new SudokuRow(sudokuRow.getRow());
-            for(SudokuElement sudokuElement : sudokuRow.getSudokuElementsAsRow()) {
-                clonedSudokuRow.getSudokuElementsAsRow().add(sudokuElement);
+
+        for(SudokuRow sudokuRow: sudokuRowsAsBoard) {
+            SudokuRow clonedSudokuRowsAsBoard = new SudokuRow(sudokuRow.getRow());
+
+            for(SudokuElement sudokuElement: sudokuRow.getSudokuElementsAsRow()) {
+                clonedSudokuRowsAsBoard.getSudokuElementsAsRow().add(sudokuElement);
             }
-            clonedBoard.getSudokuRowsAsBoard().add(clonedSudokuRow);
+            clonedBoard.getSudokuRowsAsBoard().add(clonedSudokuRowsAsBoard);
         }
         return clonedBoard;
     }

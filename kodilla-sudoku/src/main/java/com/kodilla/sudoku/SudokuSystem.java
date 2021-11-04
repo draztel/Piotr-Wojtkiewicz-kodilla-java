@@ -1,9 +1,11 @@
 package com.kodilla.sudoku;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class SudokuSystem {
@@ -12,6 +14,7 @@ public class SudokuSystem {
     private int row;
     private int column;
     private int value;
+    private int count = 0;
 
 
     public boolean setSudokuValue(SudokuBoard board) {
@@ -36,13 +39,62 @@ public class SudokuSystem {
     }
 
     public boolean putNumber(SudokuBoard board) {
+       int number;
         for(int i = 0; i < MAX_SIZE; i++) {
             for(int j = 0; j < MAX_SIZE; j++) {
-                    if(board.getSudokuRowsAsBoard().get(j).getSudokuElementsAsRow().get(i).getNumbers().size() == 1) {
-                        int temporaryValue = board.getSudokuRowsAsBoard().get(j).getSudokuElementsAsRow().get(i).getNumbers().get(0);
-                        board.getSudokuRowsAsBoard().get(j).getSudokuElementsAsRow().get(i).setValue(temporaryValue);
-                    } else {
+                    if(board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getNumbers().size() == 1 &&
+                            board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getValue() == 0) {
+                        int temporaryValue = board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getNumbers().get(0);
+                        board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).setValue(temporaryValue);
+                        eliminateNumbers(board);
+                        eliminateNumbersInGrid(board);
+                        count++;
+                    } else if (i == 8 && j == 8 && count > 0) {
                         System.out.println("TOO MUCH NUMBERS IN LIST");
+                        i = 0;
+                        j = 0;
+                        count = 0;
+                        continue;
+                    } else if (i == 8 && j == 8 && count == 0) {
+                        for(int k = 0; k < MAX_SIZE; k++) {
+                            for(int l = 0; l < MAX_SIZE; l++) {
+                                if(board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().size() > 1 &&
+                                        board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getValue() == 0) {
+                                    number = board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().get(0);
+                                    board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().remove(new Integer(number));
+                                    try {
+                                        board.getBoardCopies().add(board.deepCopy());
+                                    } catch(CloneNotSupportedException e) {
+                                        System.out.println("elo elo");
+                                    }
+                                    board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).setValue(number);
+                                    eliminateNumbersInGrid(board);
+                                    eliminateNumbers(board);
+                                    i = 0;
+                                    j = 0;
+                                    k = 0;
+                                    l = 0;
+                                    count = 0;
+                                    continue;
+                                } else if (board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getNumbers().size() == 0 &&
+                                        board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).getValue() == 0 &&
+                                        board.getBoardCopies().size() > 0) {
+                                    board = board.getBoardCopies().get(0);
+                                    System.out.println("0 = \n" + board.getBoardCopies().get(0));
+                                    System.out.println("10 = \n" + board);
+                                    board.getBoardCopies().get(0).getSudokuRowsAsBoard().get(0).getSudokuElementsAsRow().get(0).setValue(9);
+                                    System.out.println("0 = \n" + board.getBoardCopies().get(0));
+                                    System.out.println("10 = \n" + board);
+                                    board.getBoardCopies().removeAll(board.getBoardCopies());
+                                    i = 0;
+                                    j = 0;
+                                    k = 0;
+                                    l = 0;
+                                    count = 0;
+                                    continue;
+                                }
+                            }
+                        }
                     }
             }
         }
@@ -199,5 +251,9 @@ public class SudokuSystem {
 
     public int getValue() {
         return value;
+    }
+
+    public int getCount() {
+        return count;
     }
 }
