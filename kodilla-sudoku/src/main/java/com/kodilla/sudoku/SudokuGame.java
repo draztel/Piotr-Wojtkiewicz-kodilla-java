@@ -15,13 +15,13 @@ public class SudokuGame {
         while(!gameFinished) {
             System.out.println(sudokuBoard + "\nType FILL if you want to fill more elements with numbers\n" +
                     "Type SUDOKU to solve sudoku\n" +
-                    "Type END to finish the game");
+                    "Type ENDGAME to finish the game");
             playerDecision = scan.nextLine();
 
             if(playerDecision.equals("FILL")) {
                 processor.setSudokuValue(sudokuBoard);
             } else if(playerDecision.equals("SUDOKU")) {
-                processor.eliminateNumbers(sudokuBoard);
+                processor.eliminateNumbersInLine(sudokuBoard);
                 processor.eliminateNumbersInGrid(sudokuBoard);
                 try{
                     processor.putNumber(sudokuBoard);
@@ -31,7 +31,7 @@ public class SudokuGame {
             } else if(playerDecision.equals("TESTBOARD")) {
                 processor.testBoard(sudokuBoard);
             }
-            else if(playerDecision.equals("END")) {
+            else if(playerDecision.equals("ENDGAME")) {
                 gameFinished = true;
             }
         }

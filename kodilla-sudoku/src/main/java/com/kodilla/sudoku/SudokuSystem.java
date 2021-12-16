@@ -18,24 +18,29 @@ public class SudokuSystem {
 
 
     public boolean setSudokuValue(SudokuBoard board) {
-        System.out.println("row");
-        row = scan.nextInt();
-        System.out.println("column");
-        column = scan.nextInt();
-        System.out.println("value");
-        value = scan.nextInt();
-        if(row == 0 | row > MAX_SIZE | column == 0 | column > MAX_SIZE | value == 0 | value > MAX_SIZE) {
-            throw new ValueException("Error: row was: " + getRow() + " has to be 1 - 9\n" +
-                    "column was: " + getColumn() + " has to be 1 - 9\n" +
-                    "value was: " + getValue() + " has to be 1-9");
-        } else {
-            row -= 1;
-            column -= 1;
-            board.getSudokuRowsAsBoard().get(row).getSudokuElementsAsRow().get(column).setValue(value);
-            System.out.println("DEVELOPER: sudoku value has been filled");
-            System.out.println(board.toString());
-            return true;
+        boolean fillFinished = false;
+        while (!fillFinished) {
+            System.out.println("Type numbers after space: row column value\n" +
+                    "Type 999 if you are done");
+            row = scan.nextInt();
+            column = scan.nextInt();
+            value = scan.nextInt();
+            if (row == 0 | row > MAX_SIZE | column == 0 | column > MAX_SIZE | value == 0 | value > MAX_SIZE | board.getSudokuRowsAsBoard().get(row - 1).getSudokuElementsAsRow().get(column - 1).getValue() != 0) {
+                throw new ValueException("Row was: " + getRow() + " has to be 1 - 9\n" +
+                        "Column was: " + getColumn() + " has to be 1 - 9\n" +
+                        "Entered value was: " + getValue() + " has to be 1-9\n" +
+                        "Existed value was: " + board.getSudokuRowsAsBoard().get(row).getSudokuElementsAsRow().get(column).getValue() + " has to be 0");
+            } else if (row == 999) {
+                fillFinished = true;
+            } else {
+                row -= 1;
+                column -= 1;
+                board.getSudokuRowsAsBoard().get(row).getSudokuElementsAsRow().get(column).setValue(value);
+                System.out.println("Sudoku value has been filled");
+                System.out.println(board);
+            }
         }
+        return true;
     }
 
     public boolean putNumber(SudokuBoard board) {
@@ -46,11 +51,11 @@ public class SudokuSystem {
                             board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getValue() == 0) {
                         int temporaryValue = board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getNumbers().get(0);
                         board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).setValue(temporaryValue);
-                        eliminateNumbers(board);
+                        eliminateNumbersInLine(board);
                         eliminateNumbersInGrid(board);
                         count++;
                     } else if (i == 8 && j == 8 && count > 0) {
-                        System.out.println("TOO MUCH NUMBERS IN LIST");
+                        System.out.println("ERROR: TOO MUCH NUMBERS IN LIST TO PUT NUMBER");
                         i = 0;
                         j = 0;
                         count = 0;
@@ -65,11 +70,11 @@ public class SudokuSystem {
                                     try {
                                         board.getBoardCopies().add(board.deepCopy());
                                     } catch(CloneNotSupportedException e) {
-                                        System.out.println("elo elo");
+                                        System.out.println("ERROR: COULD NOT ADD BOARD COPY TO LIST OF COPIES");
                                     }
                                     board.getSudokuRowsAsBoard().get(k).getSudokuElementsAsRow().get(l).setValue(number);
                                     eliminateNumbersInGrid(board);
-                                    eliminateNumbers(board);
+                                    eliminateNumbersInLine(board);
                                     i = 0;
                                     j = 0;
                                     k = 0;
@@ -101,7 +106,7 @@ public class SudokuSystem {
         return true;
     }
 
-    public boolean eliminateNumbers(SudokuBoard board) {
+    public boolean eliminateNumbersInLine(SudokuBoard board) {
         for(int i = 0; i < MAX_SIZE; i++) {
             for(int j = 0; j < MAX_SIZE; j++) {
                 int temporaryValue = board.getSudokuRowsAsBoard().get(i).getSudokuElementsAsRow().get(j).getValue();
